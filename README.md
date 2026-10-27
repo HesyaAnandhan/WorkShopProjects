@@ -200,3 +200,189 @@ The structure above is a suggested layout. Keep the actual notebook filename and
 
 GitHub: [@HesyaAnandhan](https://github.com/HesyaAnandhan)
 
+# Artificial Neural Network (ANN) for Binary Classification Using the make_moons Dataset
+
+## Project Overview
+
+This project demonstrates the development of an Artificial Neural Network (ANN) for binary classification using the `make_moons` dataset from Scikit-learn. The model is implemented using TensorFlow and Keras to learn nonlinear decision boundaries and classify data points into two classes.
+
+The project covers dataset generation, data preprocessing, ANN architecture design, model training, performance evaluation, visualization, and prediction on new samples.
+
+## Objectives
+
+- Generate a synthetic binary classification dataset using Scikit-learn.
+- Build an ANN with two hidden layers.
+- Train the model using the Adam optimizer and binary cross-entropy loss.
+- Evaluate the model using accuracy, precision, recall, F1-score, and test loss.
+- Visualize model accuracy, loss, confusion matrix, and decision boundary.
+- Save and reload the trained model and preprocessing scaler.
+- Predict the class of a new input sample.
+
+## Technologies Used
+
+- Python
+- Google Colab
+- TensorFlow
+- Keras
+- Scikit-learn
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Joblib
+
+## Dataset
+
+The project uses the `make_moons` function from Scikit-learn to generate a synthetic dataset containing two interleaving moon-shaped classes.
+
+Dataset configuration:
+
+- Total samples: 2,000
+- Number of features: 2
+- Number of classes: 2
+- Noise: 0.25
+- Training samples: 1,600
+- Testing samples: 400
+- Random state: 42
+
+The dataset is divided into training and testing sets using an 80:20 split. Feature scaling is performed using `StandardScaler`.
+
+## ANN Architecture
+
+The model is developed using the Keras Sequential API.
+
+| Layer | Neurons | Activation Function |
+|---|---:|---|
+| Input Layer | 2 features | None |
+| Hidden Layer 1 | 16 | ReLU |
+| Hidden Layer 2 | 8 | ReLU |
+| Output Layer | 1 | Sigmoid |
+
+Total trainable parameters: 193
+
+The model uses the Adam optimizer and binary cross-entropy loss. Training is configured for up to 100 epochs with a batch size of 32 and early stopping based on validation loss.
+
+## Project Workflow
+
+1. Import the required Python libraries.
+2. Generate the synthetic `make_moons` dataset.
+3. Visualize the distribution of the two classes.
+4. Split the dataset into training and testing sets.
+5. Scale the input features using `StandardScaler`.
+6. Build and compile the ANN model.
+7. Train the model and monitor training and validation performance.
+8. Plot the accuracy and loss curves.
+9. Evaluate the model using the test dataset.
+10. Generate the confusion matrix and decision boundary visualization.
+11. Predict the class of a new sample.
+12. Save the trained model, scaler, and evaluation results.
+13. Reload the saved model and verify its prediction.
+
+## Model Evaluation Results
+
+The trained model achieved the following results on the test dataset.
+
+| Metric | Result |
+|---|---:|
+| Test Loss | 0.1637 |
+| Test Accuracy | 92.50% |
+| Precision | 91.67% |
+| Recall | 93.50% |
+| F1-Score | 92.57% |
+
+The model correctly classified 370 out of 400 test samples.
+
+These results indicate that the ANN learned the nonlinear classification pattern in the synthetic dataset and achieved similar performance across both classes.
+
+## Visualizations
+
+The project generates the following visualizations:
+
+- Dataset distribution plot
+- Model accuracy graph
+- Model loss graph
+- Confusion matrix
+- ANN decision boundary
+
+These visualizations help evaluate the model's learning process, classification performance, and ability to separate the two classes.
+
+## Sample Prediction
+
+The trained ANN was tested using a new input sample.
+
+Input:
+
+```python
+[0.5, 0.2]
+```
+
+Prediction results:
+
+| Output | Value |
+|---|---:|
+| Class 0 Probability | 0.3155 |
+| Class 1 Probability | 0.6845 |
+| Predicted Class | 1 |
+
+The model predicts Class 1 because its estimated probability is greater than the classification threshold of 0.5.
+
+## Project Files
+
+```text
+ANN-make-moons-Binary-Classification/
+├── ANN_make_moons_Binary_Classification.ipynb
+├── README.md
+├── requirements.txt
+├── evaluation_results.csv
+├── ann_make_moons.keras
+└── scaler.joblib
+```
+
+The notebook filename may differ depending on the name used when downloading it from Google Colab.
+
+## Installation and Execution
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/HesyaAnandhan/ANN-make-moons-Binary-Classification.git
+cd ANN-make-moons-Binary-Classification
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the notebook
+
+Open the Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Select the project notebook and run the cells in order.
+
+Alternatively, upload the notebook to Google Colab and execute it there.
+
+## Saved Model
+
+The trained model is saved in Keras format as `ann_make_moons.keras`. The fitted `StandardScaler` is saved as `scaler.joblib`, allowing new samples to be transformed using the same preprocessing method used during training.
+
+The saved model and scaler were reloaded successfully, and the sample prediction was reproduced with a Class 1 probability of 0.6845.
+
+## Conclusion
+
+This project demonstrates how an Artificial Neural Network can solve a nonlinear binary classification problem using a synthetic dataset. The model achieved 92.50% test accuracy and was successfully saved, reloaded, and tested with a new sample.
+
+The project provides practical experience with neural network architecture, model training, feature scaling, evaluation metrics, data visualization, and model persistence.
+
+## Author
+
+Hesya Anandhan
+
+GitHub: [HesyaAnandhan](https://github.com/HesyaAnandhan)
+
+Project Repository: [ANN-make-moons-Binary-Classification](https://github.com/HesyaAnandhan/ANN-make-moons-Binary-Classification)
