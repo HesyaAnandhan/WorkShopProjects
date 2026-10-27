@@ -386,3 +386,209 @@ Hesya Anandhan
 GitHub: [HesyaAnandhan](https://github.com/HesyaAnandhan)
 
 Project Repository: [ANN-make-moons-Binary-Classification](https://github.com/HesyaAnandhan/ANN-make-moons-Binary-Classification)
+
+
+# Transformer-Based Next-Token Prediction Using Self-Attention
+
+## Project Overview
+
+This project implements a Transformer-based next-token prediction model using TensorFlow and Keras. The model learns word patterns from a small custom text dataset and predicts the most likely next token based on a given input sequence.
+
+The project demonstrates the fundamental concepts of Transformer architecture, causal self-attention, token embeddings, model training, evaluation, and text generation.
+
+## Objectives
+
+- Develop a basic Transformer model for next-token prediction.
+- Understand the role of self-attention in processing text sequences.
+- Implement token and positional embeddings.
+- Train and evaluate a neural network using TensorFlow and Keras.
+- Generate text by repeatedly predicting the next token.
+- Save and reload the trained model for inference.
+
+## Technologies Used
+
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+- Google Colab
+
+## Model Architecture
+
+The model consists of the following components:
+
+1. **Token Embedding:** Converts token IDs into dense vector representations.
+2. **Positional Embedding:** Adds information about token positions in the input sequence.
+3. **Multi-Head Self-Attention:** Learns relationships between tokens in the context.
+4. **Causal Attention Mask:** Prevents the model from attending to future positions.
+5. **Residual Connections:** Help preserve information across network layers.
+6. **Layer Normalization:** Stabilizes the learning process.
+7. **Feed-Forward Network:** Processes the attention output through dense layers.
+8. **Softmax Output Layer:** Produces a probability distribution over the vocabulary for next-token prediction.
+
+### Model Configuration
+
+| Parameter | Value |
+|---|---|
+| Vocabulary size | 153 |
+| Context length | 8 tokens |
+| Embedding dimension | 64 |
+| Number of attention heads | 4 |
+| Feed-forward dimension | 128 |
+| Training epochs | 100 |
+| Batch size | 16 |
+| Total model parameters | 53,209 |
+
+## Dataset
+
+The model is trained on a custom dataset containing 50 English sentences covering topics such as animals, students, computers, machine learning, and Transformers.
+
+The sentences are tokenized, and input-output training examples are created from consecutive word sequences.
+
+The dataset is divided into training and testing sets:
+
+- Training examples: 192
+- Testing examples: 49
+
+The dataset is intentionally small for educational purposes and is not intended for production-level language generation.
+
+## Project Structure
+
+```text
+transformer-next-token-prediction/
+├── transformer_next_token_prediction.ipynb
+├── transformer_model.keras
+├── tokenizer.json
+├── config.json
+├── evaluation_results.csv
+├── training_history.png
+├── requirements.txt
+└── README.md
+```
+
+The notebook filename may differ depending on the name used when downloading it from Google Colab.
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/HesyaAnandhan/transformer-next-token-prediction.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd transformer-next-token-prediction
+```
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+## How to Run
+
+1. Open the Jupyter notebook in Google Colab or a compatible Jupyter environment.
+2. Install the dependencies listed in `requirements.txt`.
+3. Execute the notebook cells in order.
+4. Train the Transformer model.
+5. Evaluate its performance on the test dataset.
+6. Try next-token prediction with different prompts.
+7. Generate short text sequences.
+8. Save and reload the trained model.
+
+## Example: Next-Token Prediction
+
+**Input prompt:**
+
+```text
+the cat
+```
+
+**Top predicted next tokens:**
+
+| Token | Probability |
+|---|---:|
+| sleeps | 99.63% |
+| the | 0.0242% |
+| a | 0.0242% |
+| from | 0.0173% |
+| dog | 0.0164% |
+
+The model predicts `sleeps` as the most likely next token, producing the phrase `the cat sleeps`.
+
+These probabilities describe the model's predictions for this particular prompt. They do not represent overall model accuracy.
+
+## Text Generation
+
+The model generates text by repeatedly predicting the next token and appending it to the existing sequence.
+
+Example prompts include:
+
+```python
+generate_text("the cat", max_new_tokens=10)
+generate_text("machine learning", max_new_tokens=10)
+generate_text("the student", max_new_tokens=10)
+```
+
+The generated text demonstrates the autoregressive prediction process. Because the training dataset is small, the output may contain repeated words or grammatically inconsistent sentences.
+
+## Model Evaluation
+
+The project evaluates the trained model using test loss and test accuracy. Training and validation loss and accuracy are visualized in `training_history.png`, while the test metrics are stored in `evaluation_results.csv`.
+
+The initial training results showed a significant gap between training and validation accuracy, indicating overfitting.
+
+This limitation highlights the importance of using larger datasets, suitable regularization, and reliable validation strategies when developing language models.
+
+## Saved Artifacts
+
+- `transformer_model.keras`: Trained Keras model.
+- `tokenizer.json`: Saved tokenizer configuration.
+- `config.json`: Model architecture and configuration details.
+- `evaluation_results.csv`: Test evaluation metrics.
+- `training_history.png`: Training and validation graphs.
+- `requirements.txt`: Required Python libraries.
+- `transformer_next_token_prediction.ipynb`: Complete implementation notebook.
+
+## Applications
+
+The fundamental techniques demonstrated in this project are relevant to:
+
+- Next-word prediction and text autocomplete.
+- Basic language modeling.
+- Text sequence generation.
+- Natural Language Processing (NLP) education.
+- Understanding attention-based neural networks.
+
+## Limitations
+
+- The model is trained on only 50 custom sentences.
+- The vocabulary is limited to the words in the training corpus.
+- The model shows overfitting and limited generalization.
+- Generated text may be repetitive or incoherent.
+- The model is a small educational implementation, not a large language model comparable to GPT.
+
+## Future Improvements
+
+- Train on a larger and more diverse text dataset.
+- Improve generalization through regularization and early stopping.
+- Experiment with different context lengths and embedding dimensions.
+- Evaluate performance using additional language-modeling metrics.
+- Experiment with temperature-based sampling and top-k decoding.
+- Compare the Transformer model with LSTM and other sequence models.
+
+## Conclusion
+
+This project demonstrates how a basic Transformer architecture can learn token relationships through causal multi-head self-attention and predict the next token in a text sequence. It provides a practical introduction to Transformer-based language modeling, model evaluation, text generation, and model persistence using TensorFlow and Keras.
+
+## Author
+
+**Hesya Anandhan**
+
+GitHub: [HesyaAnandhan](https://github.com/HesyaAnandhan)
